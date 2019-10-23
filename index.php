@@ -4,7 +4,8 @@ header("Content-Type: application/rss+xml; charset=ISO-8859-1");
 
 $configs = include('config.php');
 
-$rssfeed = '<?xml version="1.0" encoding="ISO-8859-1"?>';
+include('utils.php');
+
 $rssfeed = '<?xml version="1.0" encoding="ISO-8859-1"?>';
 $rssfeed .= '<rss version="2.0">';
 $rssfeed .= '<channel>';
@@ -15,16 +16,7 @@ $rssfeed .= '<language>en-us</language>';
 
 $root = $configs['root'];
 
-$fileSystemIterator = new fileSystemIterator($root);
-
-$entries = array();
-foreach ($fileSystemIterator as $fileInfo) {
-	$entries[] = array(
-		'filename' => $fileInfo -> getFilename(),
-		'mtime' => $fileInfo -> getMTime(),
-		'ctime' => $fileInfo -> getCTime(),
-	);
-}
+$entries = getFiles($root);
 
 usort($entries, function($a, $b) {
 	return $b["mtime"] <=> $a["mtime"];
@@ -42,7 +34,7 @@ foreach($entries as $entry) {
 	} else {
 		$rssfeed .= "<title> File " . $path . " was modified </title>";
 	}
-	$rssfeed .= "<description> For security reasons, no more info is shows. Check out " . $path . " yourself.";
+	$rssfeed .= "<description> For security reasons, no more info is shown. Check out " . $path . " yourself.";
 	$rssfeed .= "<link>" .  $configs['url'] . "</link>";
 	$rssfeed .= "<pubDate>" . date("r", $mtime) . "</pubDate>";
 	$rssfeed .= "</item>";
