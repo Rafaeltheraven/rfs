@@ -1,0 +1,10 @@
+<?php
+
+return array(
+	'root' => '/doc/',	
+	'title' => 'file access',
+	'url' => 'example.org',
+	'description' => 'this is an example description for my RSS feed',
+);
+
+?>
