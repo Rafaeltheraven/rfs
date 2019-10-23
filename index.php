@@ -10,7 +10,7 @@ $rssfeed .= '<rss version="2.0">';
 $rssfeed .= '<channel>';
 $rssfeed .= '<title>' . $configs['title'] . '</title>';
 $rssfeed .= '<link>' . $configs['url'] . '</link>';
-$rssfeed .= '<description>' . $configs['description']'</description>';
+$rssfeed .= '<description>' . $configs['description'] . '</description>';
 $rssfeed .= '<language>en-us</language>'
 
 $root = $configs['root'];
