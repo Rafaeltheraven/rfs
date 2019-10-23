@@ -19,7 +19,7 @@ $fileSystemIterator = new fileSystemIterator($root);
 
 $entries = array();
 foreach ($fileSystemIterator as $fileInfo) {
-	$entries[] = (
+	$entries[] = array(
 		'filename' => $fileInfo -> getFilename(),
 		'mtime' => $fileInfo -> getMTime(),
 		'ctime' => $fileInfo -> getCTime(),
@@ -28,7 +28,7 @@ foreach ($fileSystemIterator as $fileInfo) {
 
 usort($entries, function($a, $b) {
 	return $b["mtime"] <=> $a["mtime"];
-}) 
+});
 
 $entries = array_slice($entries, 0, 10);
 
