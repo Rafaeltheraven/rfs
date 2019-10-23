@@ -29,11 +29,7 @@ foreach($entries as $entry) {
 	$mtime = $entry['mtime'];
 	$ctime = $entry['ctime'];
 	$rssfeed .= "<item>";
-	if ($mtime == $ctime) {
-		$rssfeed .= "<title> File " . $path . " created or permissions modified </title>";
-	} else {
-		$rssfeed .= "<title> File " . $path . " was modified </title>";
-	}
+	$rssfeed .= "<title> File " . $path . " was modified </title>";
 	$rssfeed .= "<description> For security reasons, no more info is shown. Check out " . $path . " yourself.</description>";
 	$rssfeed .= "<link>" .  $configs['url'] . "</link>";
 	$rssfeed .= "<pubDate>" . date("r", $mtime) . "</pubDate>";
