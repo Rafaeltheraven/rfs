@@ -11,7 +11,7 @@ $rssfeed .= '<channel>';
 $rssfeed .= '<title>' . $configs['title'] . '</title>';
 $rssfeed .= '<link>' . $configs['url'] . '</link>';
 $rssfeed .= '<description>' . $configs['description'] . '</description>';
-$rssfeed .= '<language>en-us</language>'
+$rssfeed .= '<language>en-us</language>';
 
 $root = $configs['root'];
 
